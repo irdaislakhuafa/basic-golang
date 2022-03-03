@@ -13,7 +13,9 @@ func main() {
 	fmt.Println(len(names))
 
 	sheNames := [2]string{
-		"Ana", "Ardani"
+		"Ana",
+		"Ardani",
 	}
+
 	fmt.Println(sheNames)
 }

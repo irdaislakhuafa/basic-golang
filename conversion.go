@@ -12,4 +12,8 @@ func main() {
 	fmt.Println("value int64 :", value64)
 	fmt.Println("value int16 :", value16)
 	fmt.Println("value int8 :", value8)
+
+	// try convert byte to string
+	name := "irda islakhu afa"
+	fmt.Printf(string(name[0]))
 }

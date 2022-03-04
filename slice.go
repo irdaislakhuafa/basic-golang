@@ -49,4 +49,41 @@ func main() {
 	fmt.Println("Slice3 :", slice3)
 	fmt.Println("Months :", month)
 
+	// create new slice without create own array
+	newSlice := make(
+		// data type
+		[]string,
+		// length
+		3,
+		// capacity
+		5,
+	)
+
+	fmt.Println("\ncreate new slice")
+	printSlice(newSlice)
+
+	newSlice[0] = "nama_1"
+	newSlice[1] = "nama_2"
+	newSlice[2] = "nama_3"
+	newSlice = append(newSlice, "nama_4")
+	newSlice = append(newSlice, "nama_5")
+	newSlice = append(newSlice, "nama_6")
+	// newSlice[3] = "nama_4" -> index out of bound
+	printSlice(newSlice)
+
+}
+
+func line(longValue int) string {
+	var line string
+	for i := 0; i < int(longValue); i++ {
+		line += "="
+	}
+	return line
+}
+
+func printSlice(slice []string) {
+	fmt.Println(line(30))
+	fmt.Println("Slice :", slice)
+	fmt.Println("Length :", len(slice))
+	fmt.Println("Capacity :", cap(slice))
 }

@@ -71,6 +71,21 @@ func main() {
 	// newSlice[3] = "nama_4" -> index out of bound
 	printSlice(newSlice)
 
+	// copy slice
+	line(30)
+	copySlice := make([]string, len(newSlice), cap(newSlice))
+	printSlice(copySlice)
+
+	// copy slice with function slice
+	copy(copySlice, newSlice) // kapasitas harus sama
+	printSlice(copySlice)
+
+	// array vs slice
+	iniArray := [...]int{1, 2, 3, 4, 5}
+	iniSlice := []int{1, 2, 3, 4, 5}
+
+	fmt.Println("Ini Array :", iniArray)
+	fmt.Println("Ini Slice :", iniSlice)
 }
 
 func line(longValue int) string {

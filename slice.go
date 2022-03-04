@@ -42,4 +42,11 @@ func main() {
 	// create slice2
 	slice2 := month[10:]
 	fmt.Println("Slice2 :", slice2)
+	slice2 = append(slice2, "bubu")
+	fmt.Println("Slice2 :", slice2)
+
+	slice3 := append(slice2, "bubur")
+	fmt.Println("Slice3 :", slice3)
+	fmt.Println("Months :", month)
+
 }

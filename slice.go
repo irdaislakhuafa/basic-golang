@@ -38,4 +38,8 @@ func main() {
 	fmt.Println(slice1)
 	month[5] = "(ini di ubah)"
 	fmt.Println(slice1)
+
+	// create slice2
+	slice2 := month[10:]
+	fmt.Println("Slice2 :", slice2)
 }

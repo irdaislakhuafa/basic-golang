@@ -13,6 +13,11 @@ type ThisIsInterface interface { // sama seperti interface di java, jadi harus a
 	TestName(variable string) string
 }
 
+// create interface 2
+type ThisIsInterface2 interface {
+	SayHelloPlease() string
+}
+
 // cara implementasi interface di Golang tidak seperti java tapi secara otomatis, jika ada struct (atau class di java) yang memiliki struktur sama seperti interface maka itu adalah class/struct implementasinya
 
 // one struct must implement all method in interface
@@ -42,6 +47,10 @@ func main() {
 	// create variable with type struct Animal
 	animal := Animal{Name: "Anjing"}
 	animalInfo(animal)
+
+	// call printSayHelloPlease which required ThisIsInterface2
+	fmt.Println(strings.Repeat("-", 15))
+	printSayHelloPlease(animal)
 }
 
 func sayHelloToInterface(example ThisIsInterface) {
@@ -70,7 +79,12 @@ func (animal Animal) GetName() (string, string) {
 func (animal Animal) WhoAreYou() string {
 	return animal.Name
 }
-
+func (animal Animal) SayHelloPlease() string {
+	return strings.ToUpper("please say hello!")
+}
 func animalInfo(interfaceName ThisIsInterface) {
 	fmt.Println("Animal name is : ", interfaceName.TestName("ini namanya"))
+}
+func printSayHelloPlease(in2 ThisIsInterface2) {
+	fmt.Println("She say :", in2.SayHelloPlease())
 }

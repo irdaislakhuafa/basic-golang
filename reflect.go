@@ -1,13 +1,18 @@
 package main
 
 import (
+	"basic-golang/helpers"
 	"fmt"
+	"log"
 	"reflect"
 )
 
 type Example struct {
-	Name string
+	Name string `required:"true"`
 	Age  int
+}
+type ExampleAgain struct {
+	Name string
 }
 
 func (e Example) WhoAmI() string {
@@ -23,6 +28,8 @@ func main() {
 
 	example1 := Example{Name: "irda islakhu afa", Age: 20}
 	PrintExampleStruct(&example1)
+	helpers.Line(20)
+	fmt.Println("Apakah Valid :", IsValid(example1))
 }
 func PrintExampleStruct(example *Example) {
 
@@ -44,7 +51,29 @@ func PrintExampleStruct(example *Example) {
 	fmt.Println("Field :", sliceField)
 	fmt.Println("Total method :", exampleType.NumMethod())
 	fmt.Println("Methods :", sliceMethod)
+	fmt.Println("Data :", *example)
+}
 
+func IsValid(data interface{}) bool {
+	defer func() {
+		err := recover()
+		if err != nil {
+			log.Println("Error :", err)
+			// return
+		}
+	}()
+
+	// TypeOf ngambil tipe field nya
+	// ValueOf ngambil value field nya
+	tempType := reflect.TypeOf(data)
+	var tempValue interface{}
+	for i := 0; i < tempType.NumField(); i++ {
+		if tempType.Field(i).Tag.Get("required") == "true" {
+			tempValue = reflect.ValueOf(data).Field(i).Interface()
+			return tempValue != ""
+		}
+	}
+	return true
 }
 
 /*

@@ -2,6 +2,7 @@ package helpers
 
 import (
 	"fmt"
+	"strings"
 )
 
 var appVersion = "1.2.3"
@@ -13,6 +14,15 @@ func SayHelloFromHelper() {
 
 func sayHelloFromHelper() {
 	fmt.Println("ini say hello yang private")
+}
+func Line(longLine int, character ...*string) {
+	var result string
+	if len(character) > 0 {
+		result = *character[0]
+	} else {
+		result = "-"
+	}
+	fmt.Println(strings.Repeat(result, longLine))
 }
 
 /*

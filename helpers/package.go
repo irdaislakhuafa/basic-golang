@@ -4,8 +4,15 @@ import (
 	"fmt"
 )
 
+var appVersion = "1.2.3"
+var MyApplicationName = "Belajar Golang"
+
 func SayHelloFromHelper() {
 	fmt.Println("Hello :D")
+}
+
+func sayHelloFromHelper() {
+	fmt.Println("ini say hello yang private")
 }
 
 /*

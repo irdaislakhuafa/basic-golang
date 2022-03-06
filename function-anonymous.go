@@ -20,7 +20,7 @@ func main() {
 	password := "anaardani"
 
 	// cara 1
-	blackList := func(name, pass string) bool {
+	var blackList FunctionName = func(name, pass string) bool {
 		return (strings.ToLower(name) == "admin")
 	}
 	registerUser(username, password, blackList)

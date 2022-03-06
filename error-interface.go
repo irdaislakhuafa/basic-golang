@@ -29,8 +29,6 @@ func main() {
 
 func pembagian(a int, b int) (int, error) { // mirip throws exception
 
-	fmt.Println(b <= 0, " ", b)
-
 	if b == 0 {
 		fmt.Println("anaaa")
 		return 0, errors.New(strings.ToUpper("pembagi error! tidak boleh 0"))
